@@ -143,12 +143,14 @@ function createMap() {
   }
 
   // 基地（玩家守卫的目标）
-  map[MAP_ROWS - 2][Math.floor(MAP_COLS / 2)] = BASE;
-  map[MAP_ROWS - 2][Math.floor(MAP_COLS / 2) - 1] = BRICK;
-  map[MAP_ROWS - 2][Math.floor(MAP_COLS / 2) + 1] = BRICK;
-  map[MAP_ROWS - 3][Math.floor(MAP_COLS / 2) - 1] = BRICK;
-  map[MAP_ROWS - 3][Math.floor(MAP_COLS / 2)] = BRICK;
-  map[MAP_ROWS - 3][Math.floor(MAP_COLS / 2) + 1] = BRICK;
+  let baseR = MAP_ROWS - 2;
+  let baseC = Math.floor(MAP_COLS / 2);
+  map[baseR][baseC] = BASE;
+  map[baseR][baseC - 1] = BRICK;
+  map[baseR][baseC + 1] = BRICK;
+  map[baseR - 1][baseC - 1] = BRICK;
+  map[baseR - 1][baseC + 1] = BRICK;
+  // baseR-1 的中间位置留空作为入口
 
   // 随机砖块和墙壁
   let patterns = [
